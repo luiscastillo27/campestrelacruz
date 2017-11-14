@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  	  <meta charset="utf-8" />
+      <title>Desarrollo campestre la cruz</title>
+      <!-- <base href="/"> -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Luis Castillo Z | iWebsapp |">
+      <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="../home/css/animate.css">
+      <link href="./css/bootstrap.min.css" rel="stylesheet" />
+      <link href="./css/material-dashboard.css" rel="stylesheet"/>
+      <link href="./css/material-icons.css" rel='stylesheet'>
+      <link href="./css/font-awesome.min.css" rel="stylesheet" >
+      <link href="./css/estilos.css" rel="stylesheet" />
+      <link rel="shortcut icon" href="img/icon.png">
+	</head>
+  <body ng-app="jimApp">
+  
+      
+
+        <div ng-view></div>
+
+     
+            <div class="forms" ng-controller="FormsCtrl">
+                <div class="modal-bg">
+                    <div ng-include="clienteV" ng-controller="ClientesFormCtrl"></div>
+                    <div ng-include="masdepositosV" ng-controller="DepositoMasFormCtrl"></div>
+                    <div ng-include="depositosV" ng-controller="DepositosFormCtrl"></div>
+                    <div ng-include="empleadosV" ng-controller="EmpleadosFormCtrl"></div>
+                    <div ng-include="maspagosV" ng-controller="PagoMasFormCtrl" ></div>
+                    <div ng-include="pagosV" ng-controller="PagosFormCtrl"></div>
+                    <div ng-include="terrenosV" ng-controller="TerrenosFormCtrl"></div>
+                    <div ng-include="videosV" ng-controller="VideosFormCtrl"></div>
+                </div>
+            </div>  
+
+        </div>
+  </div>
+
+  
+
+    <script src="js/jquery.min.js"></script>
+    <script src="../home/js/scrollflow.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/api.js"></script> 
+    <script src="js/app.js"></script> 
+    <script src="js/router.js"></script> 
+    <script src="js/services.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script src="ctrls/FormsCtrl.js"></script>  
+    <script src="ctrls/AccesoCtrl.js"></script> 
+    <script src="ctrls/EditarPerfilCtrl.js"></script>
+    <script src="ctrls/PerfilCtrl.js"></script>
+    <script src="ctrls/MenuCtrl.js"></script>
+    <script src="ctrls/LoginCtrl.js"></script>
+    
+    <script src="ctrls/ClientesCtrl.js"></script>
+    <script src="ctrls/DepositoMasCtrl.js"></script>
+    <script src="ctrls/DepositosCtrl.js"></script> 
+    <script src="ctrls/EmpleadosCtrl.js"></script>
+    <script src="ctrls/PagoMasCtrl.js"></script>
+    <script src="ctrls/PagosCtrl.js"></script> 
+    <script src="ctrls/TerrenosCtrl.js"></script>
+    <script src="ctrls/VideosCtrl.js"></script>
+
+    <script src="ctrlsform/ClientesFormCtrl.js"></script>
+    <script src="ctrlsform/DepositoMasFormCtrl.js"></script>
+    <script src="ctrlsform/DepositosFormCtrl.js"></script> 
+    <script src="ctrlsform/EmpleadosFormCtrl.js"></script>
+    <script src="ctrlsform/PagoMasFormCtrl.js"></script>
+    <script src="ctrlsform/PagosFormCtrl.js"></script> 
+    <script src="ctrlsform/TerrenosFormCtrl.js"></script>
+    <script src="ctrlsform/VideosFormCtrl.js"></script>
+    <script src="ctrls/ClientesLoadCtrl.js"></script>
+
+  </body>
+</html>

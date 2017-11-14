@@ -1,0 +1,112 @@
+<div id="vNuevoVdo" class="ventana">
+		<div class="title-ventana green">
+			Nuevo archivo
+		</div>
+		<div class="body-ventana">
+			<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+			<form role="form" name="formNuevoRecurso" enctype="multipart/form-data">
+				
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="form-group label-floating">
+							<label class="control-label">Titulo</label>
+							<input type="text" class="form-control" ng-model="archivo.titulo" required minlength="3">
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="margintop"></div>
+						<div class="fileUpload btn btn-primary">
+						    <span>Imagen Portada</span>
+						    <input type="file"  uploader-model="archivo.imagenpeque" class="upload"  required />
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="form-group label-floating">
+							<label class="control-label">Contenido</label>
+							<textarea class="form-control" ng-model="archivo.contenido" required minlength="3" cols="27" rows="2"></textarea>
+						</div>
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="margintop"></div>
+						<div class="fileUpload btn btn-primary">
+						    <span>Imagen</span>
+						    <input type="file" uploader-model="archivo.imagengrandeimg" class="upload" />
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="form-group label-floating">
+							<label class="control-label">Video de YouTube</label>
+							<input type="text" class="form-control" ng-model="archivo.imagengrandevideo" minlength="3">
+						</div>
+					</div>
+				</div>
+
+				<button ng-disabled="formNuevoRecurso.$invalid" ng-click="guardarRecurso();" class="btn btn-subir-form btn-success pull-right">Guardar</button>
+
+				<div class="alert alert-success" id="exitoRegistrarRecursos">
+	                <p>Se ha subido el archivo correctamente</p>
+	            </div> 
+	            <div class="alert alert-warning" id="waringRegistrarRecursos">
+	                <p>Este es un archivo no valido</p>
+	            </div>
+	            <div class="alert alert-warning" id="waringRegistrarVideo">
+	                <p>Olvdaste poner un video o una foto</p>
+	            </div>
+	            <div class="alert alert-warning" id="waringRegistrarPortada">
+	                <p>Olvdaste poner la portada</p>
+	            </div>
+	            <div class="alert alert-inverse" id="loadRRecursos">
+	                <img src="./img/load.gif" alt="cargando">
+	            </div> 
+
+
+			</form>
+		</div>
+</div><!-- NUEVO VIDEO -->
+
+
+	
+
+
+<div id="vDeleteVdo" class="ventana mini">
+		<div class="title-ventana red">
+			Eliminar archivo
+		</div>
+		<div class="body-ventana">
+			<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+			<form>
+
+  
+				<p>¿Está seguro que desea eliminar este archivo
+				?</p>
+
+				<div class="row">
+					<div class="col-xs-6">
+						<a ng-click="conformDeleteVideo(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+					</div>
+					<div class="col-xs-6">
+						<a ng-click="conformDeleteVideo(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+					</div>
+				</div>
+
+			</form>
+		</div><br>
+
+		<div class="alert alert-success" id="exitoEliminarRecurso">
+	        <p>Se ha registrado correctamente el recurso</p>
+	    </div> 
+	    <div class="alert alert-warning" id="deleteWaringDelete">
+	                <p>Este recurso ya ha sido eliminado</p>
+	    </div>
+	    <div class="alert alert-inverse" id="loadRVideos">
+	                <img src="./img/load.gif" alt="cargando">
+	    </div> 
+
+</div><!-- ELIMINAR VIDEO -->
+

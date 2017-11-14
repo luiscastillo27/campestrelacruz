@@ -1,0 +1,861 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Zeus</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: Comic Sans MS;
+                font-size: 18px;
+            }
+            li{
+                list-style: none;
+            }
+            body {
+                background: #a9e6fc;
+            }
+            .imagen{
+                width: 20%;
+                margin: 27px auto;
+            }
+            .imagen img{
+                width: 100%;
+            }
+            p{
+                text-align: center;
+                padding-top: 10px;
+            }
+            h1{
+                text-align: center;
+                font-size: 20px;
+            }
+            h1 a{
+                text-decoration: none;
+                color: #0090ff;
+            }
+            h2{
+                width: 40%;
+                margin: 0px auto;
+                background: #0090ff;
+                margin: 27px auto;
+                padding: 10px;
+                color: #fff;
+                text-align: center;
+            }
+            .tab{
+                display: block;
+                width: 40%;
+                margin: 27px auto;
+            }
+            .menu ul{
+                display: none;
+            }
+            .menu li h3,
+            .menu li h5{
+                display: block;
+                padding: 10px;
+                background: #333;
+                color: #ddd;
+            }
+            .menu li h5{
+                cursor: pointer;
+                background: #666;
+                color: #fff;
+                border-bottom: solid 1px #fff;
+            }
+            .menu li .active{
+                background: #1a95d5;
+            }
+            .menu ul li{
+                display: block;
+                background: #eee;
+                padding: 10px;
+            }
+            .menu ul li a{ 
+                display: block;
+                text-decoration: none;
+                color: #0090ff;
+                padding: 10px 0px 10px 0px;
+            }
+            .menu .info{
+                background: #333;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="imagen">
+            <img src="../templates/icon.png">
+        </div>
+        <h1>API REST creada por <a href="https://hightechnologies.com.mx/" target="_blank">HighTechnologies</a></h1>
+       <!--  <p>El token es un codigo de seguridad que se pasa por los heardes para que puedan realizar cualquier peticion a la db</p>
+        <h2>Nombre del token <strong>APP-TOKEN</strong></h2> -->
+
+        <div class="tab">
+            <ul class="menu">
+                <li><h3>Usuarios</h3></li>
+                <li><h5> Crear nuevo usuario </h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="auth/registrar" target="_blank">public/auth/registrar</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol class="info">
+                                <li><strong>tipo_usr</strong> tipo de usuario: 0 administrador, 1 Normal</li>
+                                <li><strong>nick_usr</strong> nombre de usuario</li>
+                                <li><strong>edad_usr</strong> edad del usuario</li>
+                                <li><strong>sexo_usr</strong> sexo del usuario (M o F)</li>
+                                <li><strong>password_usr</strong> password del usuario</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+                <li><h5>Iniciar sesion</h5> 
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="auth/autenticar" target="_blank">public/auth/autenticar</a>
+                            <ol>
+                                <li><strong>User</strong> nombre de usuario</li>
+                                <li><strong>Pass</strong> password del usuario</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+
+                <li><h5>Modificar usuario</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="usuario/actualizar/2" target="_blank">public/usuario/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>tipo_usr</strong> tipo de usuario 1 administrador 2 normal</li>
+                                <li><strong>nick_usr</strong> nombre de usuario</li>
+                                <li><strong>edad_usr</strong> edad del usuario</li>
+                                <li><strong>sexo_usr</strong> sexo del usuario (M o F)</li>
+                                <li><strong>password_usr</strong> password del usuario</li>
+                            </ol>
+                            <strong>password_usr</strong> No es obligatorio
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+                <li><h5>Obtener usuario</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="usuario/obtener/1" target="_blank">public/usuario/obtener/1</a>
+                            obtener acepta un numero de id del usuario.
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_usr": "1",</li>
+                                    <li>"tipo_usr": "1",</li>
+                                    <li>"nick_usr": "jim",</li>
+                                    <li>"edad_usr": "27",</li>
+                                    <li>"sexo_usr": "F"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar usuarios</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="usuario/listar/5/0" target="_blank">public/usuario/listar/5/0</a>
+                            El primer numero indica el numero de registros y el segundo es el registro actual
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_usr": "1",</li>
+                                    <li>"tipo_usr": "1",</li>
+                                    <li>"nick_usr": "jim",</li>
+                                    <li>"edad_usr": "27",</li>
+                                    <li>"sexo_usr": "F"</li>
+                                <li>},</li>
+
+                                <li>{</li>
+                                    <li>"id_usr": "2",</li>
+                                    <li>"tipo_usr": "1",</li>
+                                    <li>"nick_usr": "luis",</li>
+                                    <li>"edad_usr": "15",</li>
+                                    <li>"sexo_usr": "M"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+            </ul>
+        </div><!-- USUARIO -->
+
+
+
+
+        <div class="tab">
+            <ul class="menu">
+                <li><h3>Masa corporal</h3></li>
+                <li><h5>Registrar masa corporal</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="masa-corporal/registrar" target="_blank">public/masa-corporal/registrar</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>idForeign_corporal</strong> id del usuario logeado</li>
+                                <li><strong>altura_corporal</strong> altura del usuario</li>
+                                <li><strong>peso_corporal</strong> peso del usuario</li>
+                            </ol>
+                            La respt api automaticamente calcula el indice de masa corporal y lo guarda en imc_corporal
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+
+                <li><h5>Modificar masa corporal</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="masa-corporal/actualizar/2" target="_blank">public/masa-corporal/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>idForeign_corporal</strong> id del usuario logeado</li>
+                                <li><strong>altura_corporal</strong> altura del usuario</li>
+                                <li><strong>peso_corporal</strong> peso del usuario</li>
+                            </ol>
+                            La respt api automaticamente calcula el indice de masa corporal y lo guarda en imc_corporal
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+                <li><h5>Obtener masa corporal de un usuario</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="masa-corporal/obtener/1" target="_blank">public/masa-corporal/obtener/1</a>
+                            Lleva un parametro de id de algun registro en especifico
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_corporal": "1",</li>
+                                    <li>"idForeign_corporal": "1",</li>
+                                    <li>"altura_corporal": "1.58",</li>
+                                    <li>"peso_corporal": "47",</li>
+                                    <li>"imc_corporal": "18.827111",</li>
+                                    <li>"fecha_corporal": "28/10/2016 - 04:50 pm"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Obtener historias de masa corporal</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="masa-corporal/obtenerTodos/1" target="_blank">public/masa-corporal/obtenerTodos/1</a>
+                             Lleva un parametro de id de el usuario especificado y muestra todos los registros de ese usuario
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_corporal": "1",</li>
+                                    <li>"idForeign_corporal": "1",</li>
+                                    <li>"altura_corporal": "1.58",</li>
+                                    <li>"peso_corporal": "47",</li>
+                                    <li>"imc_corporal": "18.827111",</li>
+                                    <li>"fecha_corporal": "28/10/2016 - 04:50 pm"</li>
+                                <li>}</li>
+
+                                <li>{</li>
+                                    <li>"id_corporal": "1",</li>
+                                    <li>"idForeign_corporal": "1",</li>
+                                    <li>"altura_corporal": "1.58",</li>
+                                    <li>"peso_corporal": "47",</li>
+                                    <li>"imc_corporal": "18.827111",</li>
+                                    <li>"fecha_corporal": "28/10/2016 - 04:50 pm"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar masa corporal</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="masa-corporal/listar/5/0/1" target="_blank">public/masa-corporal/listar/5/0/1</a>
+                            El primer parametro indica el numero de registros que se van a mostrar, el segundo parametro es desde cual registro se va mostrar y el tercer paramtero es el id el usuario
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_corporal": "1",</li>
+                                    <li>"idForeign_corporal": "1",</li>
+                                    <li>"altura_corporal": "1.58",</li>
+                                    <li>"peso_corporal": "47",</li>
+                                    <li>"imc_corporal": "18.827111",</li>
+                                    <li>"fecha_corporal": "28/10/2016 - 04:50 pm"</li>
+                                <li>}</li>
+
+                                <li>{</li>
+                                    <li>"id_corporal": "1",</li>
+                                    <li>"idForeign_corporal": "1",</li>
+                                    <li>"altura_corporal": "1.58",</li>
+                                    <li>"peso_corporal": "47",</li>
+                                    <li>"imc_corporal": "18.827111",</li>
+                                    <li>"fecha_corporal": "28/10/2016 - 04:50 pm"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+
+                <li><h5>Eliminar un registro</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo DELETE</i>
+                            <a href="masa-corporal/eliminar/1" target="_blank">public/masa-corporal/eliminar/1</a>
+                            Acepta un parametro id de un registro en particular y lo elimina
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+
+                <li><h5>Eliminar total de registros</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo DELETE</i>
+                            <a href="masa-corporal/eliminarTodos/1" target="_blank">public/masa-corporal/eliminarTodos/1</a>
+                            Acepta un parametro id de un registro en particular y elimina todos los registros de la db
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+            </ul>
+        </div><!-- MASA CORPORAL -->
+
+
+
+
+
+        <div class="tab">
+            <ul class="menu">
+                <li><h3>Rutinas y Ejercicios</h3></li>
+                <li><h5>Crear nueva rutina o ejericio</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="rutinas/registrar" target="_blank">public/rutinas/registrar</a>
+                            crea una rutina o ejercicio dependendo tu tipo
+                            <ol>
+                                <li><strong>tipo_re</strong> tipo Rutina o Ejercicio</li>
+                                <li><strong>clasificacion_re</strong> clasificacion Volumen o Definicion</li>
+                                <li><strong>categoria_re</strong> categoria Normales o Rapidos</li>
+                                <li><strong>nombre_re</strong> rutina o ejercicio a realizar</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+                <li><h5>Modificar rutina o ejercicio</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="rutinas/actualizar/2" target="_blank">public/rutinas/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>tipo_re</strong> tipo Rutina o Ejercicio</li>
+                                <li><strong>clasificacion_re</strong> clasificacion Volumen o Definicion</li>
+                                <li><strong>categoria_re</strong> categoria Normales o Rapidos</li>
+                                <li><strong>nombre_re</strong> rutina o ejercicio a realizar</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+
+                <li><h5>Obtener rutina o ejercicio</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="rutinas/obtener/1" target="_blank">public/rutinas/obtener/1</a>
+                            obtener acepta un numero de id de la rutina o ejercicio.
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_re": "1",</li>
+                                    <li>"tipo_re": "Rutina",</li>
+                                    <li>"clasificacion_re": "Definicion",</li>
+                                    <li>"categoria_re": "Rapidos",</li>
+                                    <li>"nombre_re": "Prueba 1"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar rutinas o ejericios</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="rutinas/listar/5/0" target="_blank">public/rutinas/listar/5/0</a>
+                            El primer numero indica el numero de registros y el segundo es el registro actual
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_re": "1",</li>
+                                    <li>"tipo_re": "Rutina",</li>
+                                    <li>"clasificacion_re": "Definicion",</li>
+                                    <li>"categoria_re": "Rapidos",</li>
+                                    <li>"nombre_re": "Prueba 1"</li>
+                                <li>},</li>
+
+                                <li>{</li>
+                                    <li>"id_re": "2",</li>
+                                    <li>"tipo_re": "Ejercicio",</li>
+                                    <li>"clasificacion_re": "Volumen",</li>
+                                    <li>"categoria_re": "Normales",</li>
+                                    <li>"nombre_re": "Prueba 2"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Eliminar rutina o ejercicio</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo DELETE</i>
+                            <a href="rutinas/eliminar/1" target="_blank">public/rutinas/eliminar/1</a>
+                            Acepta un parametro id de una rutina o ejercicio en particular y lo elimina
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+
+
+            </ul>
+        </div><!-- USUARIO -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="tab">
+            <ul class="menu">
+                <li><h3>Dietas</h3></li>
+                <li><h5>Crear nueva dieta</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="dietas/registrar" target="_blank">public/dietas/registrar</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol class="info">
+                                <li><strong>duracion_die</strong> Una semana, un mes....</li>
+                                <li><strong>tipo_die</strong> Normal o Extrema</li>
+                                <li><strong>sexo_die</strong> sexo del usuario (M o F)</li>
+                                <li><strong>desayuno_die</strong> Alimento</li>
+                                <li><strong>comida_die</strong> Alimento</li>
+                                <li><strong>cena_die</strong> Alimento</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+
+                <li><h5>Modificar dieta</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="dietas/actualizar/2" target="_blank">public/dietas/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>duracion_die</strong> Una semana, un mes....</li>
+                                <li><strong>tipo_die</strong> Normal o Extrema</li>
+                                <li><strong>sexo_die</strong> sexo del usuario (M o F)</li>
+                                <li><strong>desayuno_die</strong> Alimento</li>
+                                <li><strong>comida_die</strong> Alimento</li>
+                                <li><strong>cena_die</strong> Alimento</li>
+                            </ol>
+                            <strong>password_usr</strong> No es obligatorio
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+                <li><h5>Obtener dieta</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="dietas/obtener/1" target="_blank">public/dietas/obtener/1</a>
+                            obtener acepta un numero de id de la dieta.
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_die": "1",</li>
+                                    <li>"duracion_die": "Dos semanas",</li>
+                                    <li>"nick_usr": "jim",</li>
+                                    <li>"tipo_die": "Extrema",</li>
+                                    <li>"sexo_die": "F",</li>
+                                    <li>"desayuno_die": "Desayunar 1 vaso de jugo y  fruta",</li>
+                                    <li>"comida_die": "Comer un vaso de jugo con una ensalada",</li>
+                                    <li>"cena_die": "Cenar un vaso de agua o tea"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar todas las dietas</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="dietas/listarTodos/5/0" target="_blank">public/dietas/listarTodos/5/0</a>
+                            El primer numero indica el numero de registros y el segundo es el registro actual
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_die": "1",</li>
+                                    <li>"duracion_die": "Dos semanas",</li>
+                                    <li>"nick_usr": "jim",</li>
+                                    <li>"tipo_die": "Extrema",</li>
+                                    <li>"sexo_die": "F",</li>
+                                    <li>"desayuno_die": "Desayunar 1 vaso de jugo y  fruta",</li>
+                                    <li>"comida_die": "Comer un vaso de jugo con una ensalada",</li>
+                                    <li>"cena_die": "Cenar un vaso de agua o tea"</li>
+                                <li>},</li>
+
+                                <li>{</li>
+                                    <li>"id_die": "2",</li>
+                                    <li>"duracion_die": "Tres semanas",</li>
+                                    <li>"nick_usr": "luis",</li>
+                                    <li>"tipo_die": "Normal",</li>
+                                    <li>"sexo_die": "M",</li>
+                                    <li>"desayuno_die": "Desayunar 1 vaso de jugo y  fruta",</li>
+                                    <li>"comida_die": "Comer un vaso de jugo con una ensalada",</li>
+                                    <li>"cena_die": "Cenar un vaso de agua o tea"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar  dietas tipo (Extrema o Normal</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="dietas/listar/5/0/Normal" target="_blank">public/dietas/listar/5/0/Normal</a>
+                            El primer numero indica el numero de registros , el segundo es el registro actual y el tercero es el tipo sea Normal o Extrema
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_die": "1",</li>
+                                    <li>"duracion_die": "Dos semanas",</li>
+                                    <li>"nick_usr": "jim",</li>
+                                    <li>"tipo_die": "Normal",</li>
+                                    <li>"sexo_die": "F",</li>
+                                    <li>"desayuno_die": "Desayunar 1 vaso de jugo y  fruta",</li>
+                                    <li>"comida_die": "Comer un vaso de jugo con una ensalada",</li>
+                                    <li>"cena_die": "Cenar un vaso de agua o tea"</li>
+                                <li>},</li>
+
+                                <li>{</li>
+                                    <li>"id_die": "2",</li>
+                                    <li>"duracion_die": "Tres semanas",</li>
+                                    <li>"nick_usr": "luis",</li>
+                                    <li>"tipo_die": "Normal",</li>
+                                    <li>"sexo_die": "M",</li>
+                                    <li>"desayuno_die": "Desayunar 1 vaso de jugo y  fruta",</li>
+                                    <li>"comida_die": "Comer un vaso de jugo con una ensalada",</li>
+                                    <li>"cena_die": "Cenar un vaso de agua o tea"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+            </ul>
+        </div><!-- USUARIO -->
+
+
+
+
+        <div class="tab">
+            <ul class="menu">
+                <li><h3>Imagenes motivacionales</h3></li>
+                <li><h5>Registrar imagen</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="motivacion/registrar" target="_blank">public/motivacion/registrar</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>idForeign_corporal</strong> id del usuario logeado</li>
+                                <li><strong>altura_corporal</strong> altura del usuario</li>
+                                <li><strong>peso_corporal</strong> peso del usuario</li>
+                            </ol>
+                            La respt api automaticamente calcula el indice de masa corporal y lo guarda en imc_corporal
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+
+                <li><h5>Modificar imagen motivacional</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="motivacion/actualizar/2" target="_blank">public/motivacion/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>idForeign_corporal</strong> id del usuario logeado</li>
+                                <li><strong>altura_corporal</strong> altura del usuario</li>
+                                <li><strong>peso_corporal</strong> peso del usuario</li>
+                            </ol>
+                            La respt api automaticamente calcula el indice de masa corporal y lo guarda en imc_corporal
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+                <li><h5>Obtener imagen motivacional</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="motivacion/obtener/1" target="_blank">public/motivacion/obtener/1</a>
+                            Lleva un parametro de id de algun registro en especifico
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_mot": "1",</li>
+                                    <li>"imagen_mot": "imagen en base64",</li>
+                                    <li>"descripcion": "La salud es lo mas importante"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+               
+
+                <li><h5>Paginar imagenes de motivacion</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="motivacion/listar/5/0" target="_blank">public/motivacion/listar/5/0</a>
+                            El primer parametro indica el numero de registros que se van a mostrar, el segundo parametro es desde cual registro se va mostrar.
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_mot": "1",</li>
+                                    <li>"imagen_mot": "imagen en base64",</li>
+                                    <li>"descripcion": "La salud es lo mas importante"</li>
+                                <li>}, </li>
+
+                                <li>{</li>
+                                    <li>"id_mot": "2",</li>
+                                    <li>"imagen_mot": "imagen en base64",</li>
+                                    <li>"descripcion": "Si puedes hechale ganas"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+
+                <li><h5>Eliminar imagen motivacional</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo DELETE</i>
+                            <a href="motivacion/eliminar/1" target="_blank">public/motivacion/eliminar/1</a>
+                            Acepta un parametro id de un registro en particular y lo elimina
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+
+            </ul>
+        </div><!-- MASA CORPORAL -->
+
+
+
+
+
+
+
+
+
+
+        <div class="tab">
+            <ul class="menu">
+                <li><h3>Nutricion</h3></li>
+                <li><h5>Crear nueva nutricion</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="nutricion/registrar" target="_blank">public/nutricion/registrar</a>
+                            crea una rutina o ejercicio dependendo tu tipo
+                            <ol>
+                                <li><strong>sumplemento_nutr</strong> nombre del sumplemento</li>
+                                <li><strong>img_nutr</strong> imagen en Base64</li>
+                                <li><strong>tipo_nutr</strong> Artificial o Natural</li>
+                                <li><strong>informacion_nutr</strong> informacion del sumplemento</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- CREAR NUEVO USUARIO -->
+
+                <li><h5>Modificar nutricion</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo POST</i>
+                            <a href="nutricion/actualizar/2" target="_blank">public/nutricion/actualizar/2</a>
+                            Es el numero de registro por  id, los parametros son: ( todos los campos son obligatorios )
+                            <ol>
+                                <li><strong>sumplemento_nutr</strong> nombre del sumplemento</li>
+                                <li><strong>img_nutr</strong> imagen en Base64</li>
+                                <li><strong>tipo_nutr</strong> Artificial o Natural</li>
+                                <li><strong>informacion_nutr</strong> informacion del sumplemento</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- MODIFICAR USUARIO -->
+
+
+                <li><h5>Obtener nutricion</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="nutricion/obtener/1" target="_blank">public/nutricion/obtener/1</a>
+                            obtener acepta un numero de id de la rutina o ejercicio.
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_nutr": "1",</li>
+                                    <li>"sumplemento_nutr": "Suplemento 1",</li>
+                                    <li>"tipo_nutr": "Artificial",</li>
+                                    <li>"informacion_nutr": "Sumplemento basado en especias...",</li>
+                                    <li>"img_nutr": "imagen en Base64"</li>
+                                <li>}</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar todas las nutriciones</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="nutricion/listarTodos/5/0" target="_blank">public/nutricion/listarTodos/5/0</a>
+                            El primer numero indica el numero de registros y el segundo es el registro actual
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_nutr": "1",</li>
+                                    <li>"sumplemento_nutr": "Suplemento 1",</li>
+                                    <li>"tipo_nutr": "Artificial",</li>
+                                    <li>"informacion_nutr": "Sumplemento basado en proteinas...",</li>
+                                    <li>"img_nutr": "imagen en Base64"</li>
+                                <li>},</li>
+                                <li>{</li>
+                                    <li>"id_nutr": "2",</li>
+                                    <li>"sumplemento_nutr": "Suplemento 2",</li>
+                                    <li>"tipo_nutr": "Natural",</li>
+                                    <li>"informacion_nutr": "Sumplemento basado en especias...",</li>
+                                    <li>"img_nutr": "imagen en Base64"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Paginar nutricion por tipo</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo GET</i>
+                            <a href="nutricion/listar/5/0/Natural" target="_blank">public/nutricion/listar/5/0/Natural</a>
+                            El primer numero indica el numero de registros, el segundo es el registro actual y el tercero es el tipo sea Artificial o Natural
+
+                            <ol class="array">
+                                <li>{</li>
+                                    <li>"id_nutr": "1",</li>
+                                    <li>"sumplemento_nutr": "Suplemento 1",</li>
+                                    <li>"tipo_nutr": "Natural",</li>
+                                    <li>"informacion_nutr": "Sumplemento basado en proteinas...",</li>
+                                    <li>"img_nutr": "imagen en Base64"</li>
+                                <li>},</li>
+                                <li>{</li>
+                                    <li>"id_nutr": "2",</li>
+                                    <li>"sumplemento_nutr": "Suplemento 2",</li>
+                                    <li>"tipo_nutr": "Natural",</li>
+                                    <li>"informacion_nutr": "Sumplemento basado en especias...",</li>
+                                    <li>"img_nutr": "imagen en Base64"</li>
+                                <li>}</li>
+                                [total 2]
+                            </ol>
+                        </li>
+                    </ul>
+                </li><!-- OBTENER USUARIO -->
+
+                <li><h5>Eliminar nutricion</h5>
+                    <ul>
+                        <li>
+                            <i>Metodo DELETE</i>
+                            <a href="nutricion/eliminar/1" target="_blank">public/nutricion/eliminar/1</a>
+                            Acepta un parametro id de una rutina o ejercicio en particular y lo elimina
+                        </li>
+                    </ul>
+                </li><!-- INICIAR SESION -->
+
+
+            </ul>
+        </div><!-- USUARIO -->
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.menu li:has(ul)').click(function(e){
+                    //e.preventDefault();
+                    if($(this).hasClass('active')){
+                        $(this).removeClass('active');
+                        $(this).children('ul').slideUp();
+
+                    } else {
+                        $('.menu li ul').slideUp();
+                        $('.menu li ul').removeClass('active');
+                        $('.menu li ul').removeClass('active');
+                        $(this).addClass('active');
+                        $(this).children('ul').slideDown();
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,210 @@
+
+	<div id="vNuevoPgs" class="ventana">
+			<div class="title-ventana green">
+				Nuevo pago
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formNuevoPagos">
+		
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio contrato</label>
+								<input type="text" class="form-control" ng-model="pago.folio_contrato" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-8">
+							<div class="form-group label-floating">
+								<label class="control-label">Terreno</label>
+								<div class="margintop"></div>
+								<select ng-model="pago.idTerreno" required pattern="[0-9]+">
+									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha I/C</label>
+								<input type="date" class="form-control" ng-model="pago.fecha" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>							
+								<select ng-model="pago.idCliente" required pattern="[0-9]+">
+									<option ng-repeat="listarcliente in listarclientes" value="{{listarcliente.idCliente}}">{{listarcliente.nombre_completo}}</option>
+								</select>
+							</div>
+							</div>
+						</div>
+					</div>
+
+
+					<button ng-disabled="formNuevoPagos.$invalid" ng-click="guardarPago(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrarPagos">
+		                <p>Se ha registrado correctamente el cliente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringRegistrarPagos">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadRPagos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- NUEVO PAGOS -->
+
+	<div id="vVerPgs" class="ventana">
+			<div class="title-ventana gris">
+				Ver pagos
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio contrato</label>
+								<input type="text" class="form-control" id="folio_contratoc" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-8">
+							<div class="form-group label-floating">
+								<label class="control-label">Terreno</label>
+								<div class="margintop"></div>
+								<select id="idTerrenos" required pattern="[0-9]+">
+									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha I/C</label>
+								<input type="date" class="form-control" id="fechac" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>							
+								<select id="idCliente" required pattern="[0-9]+">
+									<option ng-repeat="listarcliente in listarclientes" value="{{listarcliente.idCliente}}">{{listarcliente.nombre_completo}}</option>
+								</select>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<a ng-click="irDeposito();" class="btn btn-subir-form btn-success pull-right" md-raised-button>Ver mas</a>
+
+				</form>
+			</div>
+	</div><!-- VER PAGOS -->
+
+	<div id="vEditPgs" class="ventana">
+			<div class="title-ventana blue">
+				Editar pago
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formEditarPagos">
+
+	  				<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio contrato</label>
+								<input type="text" class="form-control" id="updfolio_contrato" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-8">
+							<div class="form-group label-floating">
+								<label class="control-label">Terreno</label>
+								<div class="margintop"></div>
+								<select id="updidTerreno" required pattern="[0-9]+">
+									<option ng-repeat="terreno in terrenos" value="{{terreno.idTerreno}}">{{terreno.nombre}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha I/C</label>
+								<input type="date" class="form-control" id="updfecha" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>							
+								<select id="updidCliente" required pattern="[0-9]+">
+									<option ng-repeat="listarcliente in listarclientes" value="{{listarcliente.idCliente}}">{{listarcliente.nombre_completo}}</option>
+								</select>
+							</div>
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarPagos.$invalid" ng-click="guardarPago(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoEditarPagos">
+		                <p>Se ha registrado correctamente el cliente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringEditarPagos">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadEPagos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- EDITAR PAGOS -->
+
+	<div id="vDeletePgs" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar pago
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar este pago?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeletePago(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeletePago(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div><br>
+
+			<div class="alert alert-success" id="deletePagos">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringPagos">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDeletePag">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+
+	</div><!-- ELIMINAR PAGOS -->

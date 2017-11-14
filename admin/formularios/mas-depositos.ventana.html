@@ -1,0 +1,168 @@
+
+	<div id="vNuevoDepMs" class="ventana">
+			<div class="title-ventana green">
+				Agregar al deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formNuevoMDepositos">
+
+					<div class="row">
+		                <div class="col-xs-8">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Terreno</label>
+								<div class="margintop"></div>
+								<select name="disponibilidad" ng-model="masdepositos.idTerreno" required>
+									<option ng-repeat="listaTodo in listaTodos" value="{{listaTodo.idTerreno}}" selected>{{listaTodo.nombre}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Ingreso banco</label>
+								<input type="text" class="form-control" ng-model="masdepositos.pago_ingreso" required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+		                <div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Pagos justificados</label>
+								<input type="text" class="form-control" ng-model="masdepositos.pago_justificado" required>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Concepto</label>
+								<input type="text" class="form-control" ng-model="masdepositos.concepto" required minlength="3">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+		                <div class="col-xs-12">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Observaciones</label>
+								<input type="text" class="form-control" ng-model="masdepositos.observaciones" required minlength="5">
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formNuevoMDepositos.$invalid" ng-click="guardarMasDepositos(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrarMasDepositos">
+		                <p>Se ha registrado correctamente el deposito</p>
+		            </div> 
+		    
+		            <div class="alert alert-inverse" id="loadRMasDepositos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- NUEVO DEPOSITO -->
+
+	<div id="vEditDepMs" class="ventana">
+			<div class="title-ventana blue">
+				Editar al deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formEditarMasDepositos">
+
+	  				<div class="row">
+		                <div class="col-xs-8">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Terreno</label>
+								<div class="margintop"></div>
+								<select id="idTerrenos" required>
+									<option ng-repeat="listaTodo in listaTodos" value="{{listaTodo.idTerreno}}" selected>{{listaTodo.nombre}}</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Ingreso banco</label>
+								<input type="text" class="form-control" id="pago_ingreso" required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+		                <div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Pagos justificados</label>
+								<input type="text" class="form-control" id="pago_justificado" required>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Concepto</label>
+								<input type="text" class="form-control" id="concepto" required minlength="3">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+		                <div class="col-xs-12">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Observaciones</label>
+								<input type="text" class="form-control" id="observaciones" required minlength="5">
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarMasDepositos.$invalid" ng-click="guardarMasDepositos(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoActualizarMasDepositosbb">
+		                <p>Se ha registrado correctamente el deposito</p>
+		            </div> 
+		    
+		            <div class="alert alert-inverse" id="loadEMasDepositos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- EDITAR DEPOSITO -->
+
+	<div id="vDeleteDepMs" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar del deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar este terreno?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteDepositomas(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteDepositomas(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<br>
+
+			<div class="alert alert-success" id="deleteTerrenop">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringTerrenop">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDTerreno">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+	</div><!-- ELIMINAR DEPOSITO -->

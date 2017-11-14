@@ -1,0 +1,38 @@
+<div class="contenedor logn iniciarsesion">
+		
+		<div class="login transparent">
+			<form role="form" name="formLogin">
+				
+				<div class="social">
+					<a href="https://www.facebook.com/Desarrollo-campestre-La-Cruz-1904822866435052/" target="_blanck" class="fa fa-facebook-official"></a>
+					<a href="https://twitter.com/CampestreLaCruz" target="_blanck" class="fa fa-twitter-square"></a>
+				</div>
+				<div class="form-group label-floating">
+					<label class="control-label blak"></label>
+					<input type="text" class="form-control blak" placeholder="Correo electronico" ng-model="login.usuario" required>
+				</div>
+
+				<div class="form-group label-floating">
+					<label class="control-label blak"></label>
+					<input type="password" class="form-control blak" placeholder="Contraseña" ng-model="login.contrasena" required minlength="8">
+				</div>
+						
+				<div class="alert alert-danger" id="errorServidor">
+	                <p>Este usuario no existe</p>
+	            </div>
+
+	            <div class="alert alert-warning" id="RedencialesInvalidas">
+	                <p>El usuario y/o contraseña son incorrectos</p>
+	            </div>
+
+				<button ng-disabled="formLogin.$invalid" ng-click="login();" class="btn pull-right">Iniciar sesion</button>
+				<!-- <button class="btn pull-right"><</button> -->
+
+				<div class="alert alert-login alert-inverse" id="loadLogin">
+	                <img src="./img/load.gif" alt="cargando">
+	            </div> 
+
+			</form>
+		</div>
+
+</div><!-- CONTENEDOR -->

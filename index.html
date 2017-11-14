@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Desarrollo campestre la cruz</title>
+  <!-- <base href="/"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="author" content="Luis Castillo Z | iWebsapp |">
+  <link href='http://fonts.googleapis.com/css?family=Gabriela' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="home/css/animate.css">
+  <link href="home/css/inicio.css" rel="stylesheet">
+  <link href="home/css/fonts.css" rel="stylesheet">
+  <link rel="shortcut icon" href="admin/img/icon.png">  
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.10&appId=181264352370108";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script> 
+</head>
+<body ng-app="jimApp" ng-controller="InicioCtrl" id="body">
+
+        <div class="ole">
+            <section id="jSplash">
+                <div id="circle"></div>
+            </section>
+        </div>
+
+        <header>
+            <div class="sticky-nav">
+                <a id="mobile-nav" ng-click="togglemenu(abir);" class="menu-nav"></a>
+                
+                <div id="logo">
+                    <img src="home/img/logo.png">
+                </div>
+                
+                <nav id="menu">
+                    <ul>
+                        <li><a class="activo" href="#inicio">Inicio</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><span class="active" ng-click="irLogin();">Area de clientes</span></li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </header><!-- HEADER -->
+
+
+        <div id="inicio" class="page alternate">
+            <div class="container">
+                
+                <div class="title-page scrollflow -slide-top -opacity">
+                    <h2>Bienvenido</h2>
+                </div>
+                <p class="center scrollflow -slide-right -opacity">
+                    "Una esperanza realizable, un espacio para tu hogar, económico y legal".
+                </p>
+                   
+            </div><!-- CONTAINER -->
+        </div><!-- INICIO -->
+
+
+        <div id="gallery" class="page">
+            <div class="container hidens">
+
+                <div class="title-page scrollflow -slide-left -opacity">
+                    <h2>Galeria</h2>
+                </div><!-- TITLE -->
+
+                <div class="menu-gallery scrollflow -slide-right -opacity">
+                    <ul>
+                        <li><a id="filTodos" ng-click="filtro('all');" class="selected">Todos los  proyectos</a></li>
+                        <li><a id="filFotos" ng-click="filtro('img');">Fotos</a></li>
+                        <li><a id="filVideo" ng-click="filtro('video');">Video</a></li>
+                    </ul>
+                </div><!-- WORK NAV -->
+                     
+                
+
+                <section class="contentGallery scrollflow -slide-left -opacity">
+                    
+                    <section ng-click="abrirGalerry(r.idRecurso);" class="portafolio-item" ng-repeat="r in recursos | filter: fil ">
+                        <img ng-src="{{url}}{{r.imagenpeque}}" class="portafolio-img">
+                        <section class="portafolio-text">
+                            <h4>Lorem ipsum</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam distinctio illum iure facilis cumque saepe, dolorem, minus praesentium maiores id.</p>
+                        </section>
+                    </section>
+            
+                </section>
+      
+   
+            </div><!-- CONTAINER -->
+        </div><!-- GALLERY -->
+
+
+      
+        <div id="nosotros" class="page alternate">
+
+            <div class="container">
+  
+                <div class="title-page scrollflow -slide-top -opacity">
+                    <h2>Nosotros</h2>
+                </div>
+                    
+                <div class="izq scrollflow -slide-left -opacity">
+                    Proporcionar atención y calidad en el servicio en todas y cada una de las operaciones, para que nuestros clientes encuentren seguridad, confianza y certeza al ofrecerles siempre soluciones inteligentes por medio de la atención inmediata, el trato personalizado y profesional.
+                </div>
+
+                <div class="der scrollflow -slide-right -opacity">
+                    "Ayer esperanza, hoy realidad un espacio para tu hogar con legalidad y seriedad".
+                </div>  
+
+                
+            </div><!-- CONTAINER -->
+  
+        </div><!-- NOSOTROS -->
+
+
+        <!-- Contact Section -->
+        <div id="contacto" class="page">
+            <div class="container">
+   
+                    <div class="title-page scrollflow -slide-top -opacity">
+                        <h2>Contacto</h2>
+                    </div><!-- TITLE -->
+                
+                    <div class="content-mapa scrollflow -slide-right -opacity">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3746.914300681003!2d-98.84305668508274!3d20.09586898651105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA1JzQ1LjEiTiA5OMKwNTAnMjcuMSJX!5e0!3m2!1ses!2sus!4v1506495589705" class="framemapa" allowfullscreen></iframe>
+                    </div><!-- MAPA -->
+               
+                    <div class="informacion scrollflow -slide-left -opacity">
+                        <h3>Información</h3>
+                        <ul>
+                            <li><a href="mailto:semillahurbana987@gmail.com">semillahurbana987@gmail.com</a></li>
+                            <li><a href="mailto:desarrollocampestrelacruz@gmail.com">desarrollocampestrelacruz@gmail.com</a></li>
+                            <li><a href="tel:7717167134">(771) 71-67-134</a></li>
+                            <li><a href="tel:7712634237">(771) 26-34-237</a></li>
+                            <li class="txtinfo">
+                               Bulevard el minero 1120 local 5 y 6.
+                            </li>
+                            <li>
+                                <div class="fb-like txtinfo" data-href="https://www.facebook.com/iwebsapp/" data-layout="button" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+                                <div id="fb-root"></div>
+                            </li>
+                        </ul>
+                    </div><!-- INFORMACION -->
+
+            </div><!-- CONTAINER -->
+
+        </div><!-- CONTACTO -->
+
+
+
+        <div id="social-area" class="page alternate">
+            <div class="container">
+               
+                <div class="title-page scrollflow -slide-top -opacity">
+                    <h2>Siguenos en:</h2>
+                </div><!-- TITLE -->
+
+                <div class="social">
+                    <a href="https://twitter.com/CampestreLaCruz" target="_blank"><span class="font-icon-social-twitter scrollflow -slide-left -opacity"></span></a>
+                    
+                    <a href="https://www.facebook.com/Desarrollo-campestre-La-Cruz-1904822866435052/" target="_blank"><span class="font-icon-social-facebook scrollflow -slide-right -opacity"></span></a>
+                </div><!-- SOCIAL -->
+            
+            </div><!-- CONTAINER -->
+        </div><!-- SOCIAL -->
+
+        
+        <div class="page pie">
+            &copy; <a href="https://iwebsapp.com" target="_blank">iwebsapp</a> Todos los derechos reservados
+        </div><!-- FOOTER -->
+      
+
+        <div ng-click="subir();" class="btn-abajo">
+            <i class="font-icon-arrow-simple-up"></i>
+        </div>
+        
+    
+        <article class="oscuro">
+            <section class="ventana">
+                
+                <div class="full-view"> 
+                    <img class="full-img" ng-if="tipoVentana == 'img' " ng-src="{{url}}{{imagen}}" alt="{{titulo}}">
+                    <youtube-video ng-if="tipoVentana == 'video' " class="full-video"  video-id="video"></youtube-video>
+                    <i ng-click="close();" class="cerrar"><img src="home/img/cerrar.jpg"></i> 
+                </div>
+                <div class="full-content">
+                    <h2>{{titulo}}</h2>
+                    <p>{{contenido}}</p>
+                </div>
+                
+            </section>                    
+        </article>
+
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="admin/js/jquery.min.js"></script>
+  
+    <script src="admin/js/angular.min.js"></script>
+    <script src="home/js/scrollflow.js"></script>
+    <script src="home/node_modules/angular-youtube-embed/dist/angular-youtube-embed.min.js"></script>
+    <script src="admin/js/angular-route.min.js"></script>
+    <script src="admin/js/angular-resource.min.js"></script>
+    <script src="admin/js/api.js"></script> 
+    <script src="home/js/app.js"></script>
+    <script src="admin/js/services.js"></script>
+    <script src="home/controllers/InicioCtrl.js"></script>
+</body>
+</html>

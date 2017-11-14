@@ -1,0 +1,229 @@
+
+	<div id="vNuevoDep" class="ventana">
+			<div class="title-ventana green">
+				Nuevo deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formNuevoDeposito">
+
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio</label>
+								<input type="text" class="form-control" ng-model="deposito.folio" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Autorización</label>
+								<input type="text" class="form-control" ng-model="deposito.auth" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Clave hora</label>
+								<input type="text" class="form-control" ng-model="deposito.clave" required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha</label>
+								<input type="date" class="form-control" ng-model="deposito.fecha" required minlength="8">
+							</div>
+						</div>
+
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>
+								<select ng-model="deposito.idCliente" required pattern="[0-9]+">
+									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+			
+					<button ng-disabled="formNuevoDeposito.$invalid" ng-click="guardarDepositos(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrarDeposito">
+		                <p>Se ha registrado correctamente el deposito</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringRegistrarFolio">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringRegistrarAuth">
+		                <p>Esta autorización ya existe</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadRDepositos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div>
+
+				</form>
+			</div>
+	</div><!-- NUEVO DEPOSITO -->
+
+
+	<div id="vVerDep" class="ventana">
+			<div class="title-ventana gris">
+				Ver deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio</label>
+								<input type="text" class="form-control" id="folio" disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Autorización</label>
+								<input type="text" class="form-control" id="auth" disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Clave hora</label>
+								<input type="text" class="form-control" id="clave" disabled>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha</label>
+								<input type="date" class="form-control" id="fechaa" disabled>
+							</div>
+						</div>
+
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<input type="text" class="form-control" id="nombre" disabled>
+							</div>
+						</div>
+					</div>
+
+
+					<a ng-click="irDeposito();" class="btn btn-subir-form btn-success pull-right" md-raised-button>Ver mas</a>
+				</form>
+			</div>
+	</div><!-- VER DEPOSITO -->
+
+
+	<div id="vEditDep" class="ventana">
+			<div class="title-ventana blue">
+				Editar deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formEditarDeposito">
+
+	 				<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio</label>
+								<input type="text" class="form-control" id="edfolio" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Autorización</label>
+								<input type="text" class="form-control" id="edauth" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Clave hora</label>
+								<input type="text" class="form-control" id="edclave" required>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha</label>
+								<input type="date" class="form-control" id="edfechaa" required minlength="8">
+							</div>
+						</div>
+
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>
+								<select id="ednombre" required>
+									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					
+					<button ng-disabled="formEditarDeposito.$invalid" ng-click="guardarDepositos(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoEditarDeposito">
+		                <p>Se han guardado los cambios</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringEditarFolio">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringEditarAuth">
+		                <p>Esta autorización ya existe</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadUDepositos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div>
+
+				</form>
+			</div>
+	</div><!-- EDITAR DEPOSITO -->
+
+
+	<div id="vDeleteDep" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar deposito
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar este deposito?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteDeposito(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteDeposito(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div><br>
+
+			<div class="alert alert-success" id="deleteDeposito">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringDeposito">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDeleteDeposito">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+	</div><!-- ELIMINAR DEPOSITO -->

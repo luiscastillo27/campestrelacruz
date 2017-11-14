@@ -1,0 +1,185 @@
+
+	<div id="vNuevoTrn" class="ventana">
+		<div class="title-ventana green">
+			Nuevo terreno
+		</div>
+		
+		<div class="body-ventana">
+			<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				
+				<form role="form" name="formNuevoTerreno">
+					
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Lote</label>
+								<input type="text" class="form-control" ng-model="terreno.lote" required>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Manzana</label>
+								<div class="margintop"></div>
+							 	<select id="" name="disponibilidad" ng-model="terreno.manzana" required>
+									<option value="1" selected>Manzana 1</option>
+									<option value="2">Manzana 2</option>
+									<option value="3">Manzana 3</option>
+									<option value="4">Manzana 4</option>
+									<option value="5">Manzana 5</option>
+									<option value="6">Manzana 6</option>
+									<option value="7">Manzana 7</option>
+									<option value="8">Manzana 8</option>
+									<option value="9">Manzana 9</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Costo</label>
+								<input type="text" class="form-control" ng-model="terreno.costo" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>
+								<select ng-model="terreno.idCliente" required pattern="[0-9]+">
+									<option value="0" selected>Ninguno</option>
+									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					
+					<button ng-disabled="formNuevoTerreno.$invalid" ng-click="guardarTerreno(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+		
+					<div class="alert alert-success" id="exitoRegistrarTerrenop">
+		                <p>Se ha registrado correctamente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringRegistrarTerrenop">
+		                <p>Este terreno ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadRTerreno">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+					
+				</form>
+		</div>
+
+	</div><!-- NUEVO TERRENO -->
+
+
+
+	<div id="vEditTrn" class="ventana">
+		<div class="title-ventana blue">
+			Editar terreno
+		</div>
+		
+		<div class="body-ventana">
+			<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				
+				<form role="form" name="formEditarTerreno">
+					
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Lote</label>
+								<input type="text" class="form-control" id="lote" required>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Manzana</label>
+								<div class="margintop"></div>
+								<select name="disponibilidad" id="manzana" required>
+									<option value="1" selected>Manzana 1</option>
+									<option value="2">Manzana 2</option>
+									<option value="3">Manzana 3</option>
+									<option value="4">Manzana 4</option>
+									<option value="5">Manzana 5</option>
+									<option value="6">Manzana 6</option>
+									<option value="7">Manzana 7</option>
+									<option value="8">Manzana 8</option>
+									<option value="9">Manzana 9</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Costo</label>
+								<input type="text" class="form-control" id="costo" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<div class="margintop"></div>
+								<select id="idClientes" required>
+									<option value="0" selected>Ninguno</option>
+									<option ng-repeat="listaDisponible in listaDisponibles" value="{{listaDisponible.idCliente}}" selected>{{listaDisponible.nombre_completo}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarTerreno.$invalid" ng-click="guardarTerreno(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoActualizarTerrenop">
+		                <p>Se ha actualizado correctamente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringActualizarTerrenop">
+		                <p>Este id no se encuentra</p>
+		            </div> 
+		            <div class="alert alert-inverse" id="loadUTerreno">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+		</div>
+
+	</div><!-- EDITAR TERRENO -->
+
+
+	<div id="vDeleteTrn" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar terreno
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse()" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+					<p>¿Está seguro que desea eliminar este terreno?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteTerreno(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteTerreno(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>	 
+
+				</form>
+
+					
+			</div>
+			<br>
+
+			<div class="alert alert-success" id="deleteTerrenop">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringTerrenop">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDTerreno">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+
+	</div><!-- ELIMINAR TERRENO -->

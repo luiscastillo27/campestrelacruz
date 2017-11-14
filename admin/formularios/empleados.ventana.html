@@ -1,0 +1,152 @@
+
+	<div id="vNuevoEmp" class="ventana">
+			<div class="title-ventana green">
+				Nuevo empleado
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+
+				<form role="form" name="formNuevoEmpleados">
+					
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Puesto</label>
+								<div class="margintop"></div>
+								<select required ng-model="empelado.puesto" required>
+									<option value="Administrador" selected="true">Administrador</option>
+									<option value="Secretaria">Secretaria</option>
+									<option value="Vendedor">Vendedor</option>
+								</select>  
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del empleado</label>
+								<input type="text" class="form-control" ng-model="empelado.nombre" required minlength="3">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Correo electronico</label>
+								<input type="email" class="form-control" ng-model="empelado.correo" required>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Contraseña</label>
+								<span class="form-inicate">Debe tener mas de 8 digitos</span>
+								<input type="password" class="form-control" ng-model="empelado.contrasena" required minlength="8">
+							</div>
+						</div>
+					</div>
+
+
+					<button ng-disabled="formNuevoEmpleados.$invalid" ng-click="guardarEmpleado(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrar">
+		                <p>Se ha registrado correctamente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="pass8Digit">
+		                <p>La Contraseña debe tener mas de 8 digitos</p>
+		            </div> 
+		            <div class="alert alert-warning" id="emailExist">
+		                <p>Este correo ya esta registrado</p>
+		            </div> 
+		            <div class="alert alert-inverse" id="load">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- NUEVO EMPLEADO -->
+
+
+	<div id="vEditEmp" class="ventana">
+			<div class="title-ventana blue">
+				Editar empleado
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+
+				<form role="form" name="formEditarEmpleados">
+
+		  			<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Puesto</label>
+								<div class="margintop"></div>
+								<select id="empPuesto" required>
+									<option value="Administrador" selected="true">Administrador</option>
+									<option value="Secretaria">Secretaria</option>
+									<option value="Vendedor">Vendedor</option>
+								</select>  
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Nombre del empleado</label>
+								<input type="text" class="form-control" id="empNombre" required minlength="3">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Correo electronico</label>
+								<input type="email" class="form-control" id="empCorreo" required minlength="3">
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarEmpleados.$invalid" ng-click="guardarEmpleado(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoActualizar">
+		                <p>Se ha modificado correctamente</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadActualizar">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- EDITAR EMPLEADO -->
+
+
+	<div id="vDeleteEmp" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar empleado
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar este empleado?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteEmpleado(1)" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteEmpleado(0)" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+					<div class="alert alert-success" id="deleteEmpleado">
+		                <p>Se ha eliminado correctamente</p>
+		            </div>
+		            <div class="alert alert-warning" id="warningDelete">
+		                <p>Este empleado ya ha sido eliminado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadEliminarEmpleado">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- ELIMINAR EMPLEADO -->

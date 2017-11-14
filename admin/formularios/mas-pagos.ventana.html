@@ -1,0 +1,167 @@
+
+	<div id="vNuevoPgsMs" class="ventana">
+			<div class="title-ventana green">
+				Nueva mensualidad
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formNuevoPagoMas">
+
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Fin contrato</label>
+								<input type="date" class="form-control" ng-model="pagosmas.vencimiento_contrato" required>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio deslinde</label>
+								<input type="text" class="form-control" ng-model="pagosmas.folio_deslinde" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio enganche</label>
+								<input type="text" class="form-control" ng-model="pagosmas.folio_enganche" required pattern="[0-9]+">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Deslinde</label>
+								<input type="text" class="form-control" ng-model="pagosmas.deslinde" required  minlength="4">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Enganche</label>
+								<input type="text" class="form-control" ng-model="pagosmas.enganche" required pattern="[0-9]+" minlength="2">
+							</div>
+						</div>
+					</div>
+
+
+					<button ng-disabled="formNuevoPagoMas.$invalid" ng-click="guardarPagosMas(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrarMasPagos">
+		                <p>Se ha registrado correctamente el cliente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringEngancheMasPagos">
+		                <p>Este folio del enganche ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringDeslindeMasPagos">
+		                <p>Este folio del deslinde ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadRMasPagos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+
+				</form>
+			</div>
+	</div><!-- NUEVO CLIENTE -->
+
+
+	<div id="vEditPgsMs" class="ventana">
+			<div class="title-ventana blue">
+				Editar mensualidad
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formEditarPagoMas">
+	  
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Fin contrato</label>
+								<input type="date" class="form-control" id="vencimiento_contrato" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio deslinde</label>
+								<input type="text" class="form-control" id="folio_deslinde" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio enganche</label>
+								<input type="text" class="form-control" id="folio_enganche" required pattern="[0-9]+">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Deslinde</label>
+								<input type="text" class="form-control" id="deslinde" required pattern="[0-9]+">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Enganche</label>
+								<input type="text" class="form-control" id="enganche" required pattern="[0-9]+">
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarPagoMas.$invalid" ng-click="guardarPagosMas(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoActualizarMasPagos">
+		                <p>Se ha registrado correctamente el cliente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringEngancheMasPagosEdit">
+		                <p>Este folio del enganche ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringDeslindeMasPagosEdit">
+		                <p>Este folio del deslinde ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadUMasPagos">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- EDITAR CLIENTE -->
+
+
+	<div id="vDeletePgsMs" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar 
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar esta mensualidad?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeletePagoms(1);" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeletePagoms(0);" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<br>
+
+			<div class="alert alert-success" id="exitoDeleteMas">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringDeleteMas">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDeleteMas">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+
+	</div><!-- ELIMINAR CLIENTE -->

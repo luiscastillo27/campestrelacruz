@@ -1,0 +1,201 @@
+
+	<div id="vNuevoCln" class="ventana">
+			<div class="title-ventana green">
+				Nuevo cliente
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formNuevoCliente">
+
+	 
+		            <div class="row">
+		                <div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<input type="text" class="form-control" ng-model="cliente.nombre_completo" required minlength="3">
+							</div>
+						</div>
+						<div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Correo electronico</label>
+								<input type="email" class="form-control" ng-model="cliente.correo" required>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating cl-date">
+								<label class="control-label">Fecha</label>
+								<input type="date" class="form-control" ng-model="cliente.fecha" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating cl-date">
+								<label class="control-label">Número de teléfono</label>
+								<input type="tel" class="form-control" ng-model="cliente.telefono" required minlength="10">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio contrado</label>
+								<input type="text" class="form-control" ng-model="cliente.folio_contrato" required pattern="[0-9]+">		
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Contraseña</label>
+								<span class="form-inicate">Debe tener mas de 8 digitos</span>
+								<input type="password" class="form-control" ng-model="cliente.contrasena" required minlength="8">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Domicilio</label>
+								<input type="text" class="form-control" ng-model="cliente.domicilio" required minlength="10">
+							</div>
+						</div>
+					</div>
+					
+
+					<button ng-disabled="formNuevoCliente.$invalid" ng-click="guardarCliente(1);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+					<div class="alert alert-success" id="exitoRegistrarClientep">
+		                <p>Se ha registrado correctamente el cliente</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringRegistrarCliente">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringRegistrarMza">
+		                <p>Este cliente ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadRCliente">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- NUEVO CLIENTE -->
+
+	<div id="vEditCln" class="ventana">
+			<div class="title-ventana blue">
+				Editar cliente
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form role="form" name="formEditarCliente">
+	  
+					<div class="row">
+		                <div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Nombre del cliente</label>
+								<input type="text" class="form-control" id="upnombre_completo" required minlength="3">
+							</div>
+						</div>
+
+						<div class="col-xs-6">
+		                	<div class="form-group label-floating">
+								<label class="control-label">Correo electronico</label>
+								<input type="email" class="form-control" id="upcorreo" required>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Fecha</label>
+								<input type="date" class="form-control" id="upfecha" required minlength="8">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group label-floating">
+								<label class="control-label">Número de teléfono</label>
+								<input type="tel" class="form-control" id="uptelefono" required minlength="10">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Folio contrado</label>
+								<input type="text" class="form-control" id="upfolio_contrato" required pattern="[0-9]+">		
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Domicilio</label>
+								<input type="text" class="form-control" id="updomicilio" required minlength="10">
+							</div>
+						</div>
+					</div>
+
+					<button ng-disabled="formEditarCliente.$invalid" ng-click="guardarCliente(2);" class="btn btn-subir-form btn-primary pull-right">Guardar</button>
+
+
+					<div class="alert alert-success" id="exitoActualizarCliente">
+		                <p>Se han guardado los cambios con exito.</p>
+		            </div> 
+		            <div class="alert alert-warning" id="waringActualizarCliente">
+		                <p>Este folio ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-warning" id="waringActualizarMza">
+		                <p>Este cliente ya esta registrado</p>
+		            </div>
+		            <div class="alert alert-inverse" id="loadACliente">
+		                <img src="./img/load.gif" alt="cargando">
+		            </div> 
+
+				</form>
+			</div>
+	</div><!-- EDITAR CLIENTE -->
+
+	<div id="vDeleteCln" class="ventana mini">
+			<div class="title-ventana red">
+				Eliminar cliente
+			</div>
+			<div class="body-ventana">
+				<i ng-click="clouse();" class="cerrar fa fa-times" aria-hidden="true"></i>
+				<form>
+
+	  
+					<p>¿Está seguro que desea eliminar este cliente?</p>
+
+					<div class="row">
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteCliente(1)" md-raised-button class="btn btn-subir-form btn-success pull-right">Si</a>
+						</div>
+						<div class="col-xs-6">
+							<a ng-click="conformDeleteCliente(0)" md-raised-button class="btn btn-subir-form btn-danger pull-right">No</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+			<br>
+
+			<div class="alert alert-success" id="deleteRegistrar">
+		        <p>Se ha eliminado correctamente</p>
+		    </div>
+
+		    <div class="alert alert-warning" id="deleteWaringRegistrar">
+		        <p>Ya ha sido aliminado anteriormente</p>
+		    </div>
+		    <div class="alert alert-inverse" id="loadDelete">
+		        <img src="./img/load.gif" alt="cargando">
+		    </div> 
+		    
+	</div><!-- ELIMINAR CLIENTE -->    

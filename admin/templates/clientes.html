@@ -1,0 +1,198 @@
+<div class="wrapper" ng-controller="MenuCtrl">
+  
+      <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
+    
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+      -->
+      <div class="logo">
+        <div class="logo-img">
+          <img src="img/logo.png" alt="">
+        </div>
+      </div>
+
+      <div class="sidebar-wrapper">
+                
+        <ul class="nav">
+            <li ng-show="Perfil">
+                <a href="#/perfil">
+                    <i class="material-icons">person_pin</i>
+                    <p>Perfil</p>
+                </a>
+            </li>   
+            <li ng-show="Clientes">
+                <a href="#/clientes" class="active">
+                    <i class="material-icons">dashboard</i>
+                    <p>Clientes</p>
+                </a>
+            </li>
+            <li ng-show="Depositos">
+                <a href="#/depositos">
+                    <i class="material-icons">monetization_on</i>
+                    <p>Depositos depósitos</p> <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Empleados">
+                <a href="#/empleados">
+                  <i class="material-icons">person</i>
+                    <p>Empleados</p>
+                </a>
+            </li>
+            <li ng-show="Pagos">
+                <a href="#/pagos">
+                    <i class="material-icons">content_paste</i>
+                    <p>Pagos</p>  <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Terrenos">
+                <a href="#/terrenos">
+                    <i class="material-icons">location_on</i>
+                    <p>Terrenos</p>
+                </a>
+            </li> 
+            <li ng-show="Mapa">
+                <a href="#/mapa">
+                    <i class="material-icons">map</i>
+                    <p>Mapa</p>
+                </a>
+            </li> 
+            <li ng-show="Recursos">
+                <a href="#/videos">
+                    <i class="material-icons">perm_media</i>
+                    <p>Recursos</p>
+                </a>
+            </li>
+        </ul>
+
+      </div>
+
+    </div><!-- MENU -->
+
+    
+    <div class="main-panel">
+          <div class="main-menu" ng-controller="FormsCtrl">
+          
+                <a ng-click="btnMenu(abir);" class="btnmenu">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown">
+                    <button class="btnPerfil" data-toggle="dropdown">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu" ng-controller="LoginCtrl">
+                        <li ng-if="Perfil"><a href="#/perfil">Perfil</a></li>
+                        <li><a href="#/perfil/editar">Editar perfil</a></li>
+                        <li><a ng-click="salir();">Salir del sistema</a></li>
+                    </ul>
+                </div>
+            
+          </div>
+      
+
+            <div class="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<!-- AQUI EDITAR -->
+					<div class="container-fluid">
+						           
+						<div class="row">
+						         
+						    <div class="col-md-12">
+						    	<button ng-click="ncliente();" class="btn btn-subir btn-success pull-right">Nuevo cliente</button>        
+						        <div class="card">
+
+						                <div class="card-header" data-background-color="purple">
+						                    <h4 class="title">Lista de clientes</h4>   
+											<div class="buscador">
+												<div class="form-group label-floating">
+													<label class="control-label"></label>
+													<input type="text" class="form-control blanca" ng-model="buscador" placeholder="Buscar cliente">
+												</div>
+											</div>  
+						                </div><!-- CARD HEADER -->
+						                            
+						                <div class="card-content table-responsive">
+						                    
+											<div class="content-load" ng-if="cargando">
+												<h3>Cargando contenido</h3>
+												<img src="./img/load.gif">
+											</div><!-- CONTENT LOAD -->
+
+											<div class="content-load" ng-if="vacio">
+												<h3>No hay ningún elemento</h3>
+											</div><!-- CONTENT LOAD -->
+
+						                    <table class="table" ng-if="!cargando">
+						                        <thead class="text-primary">
+						                          	<th>Folio</th>
+						                          	<th>Nombre del cliente</th>
+						                          	<th>Teléfono</th>
+													<th>Fecha</th>
+													<th>Acciones</th>
+						                        </thead>
+						                        <tbody id="dataClientes">
+
+						                            <tr ng-repeat="cliente in clientes | filter: buscador">
+						                              	<td>{{cliente.folio_contrato}}</td>
+						                              	<td>{{cliente.nombre_completo}}</td>
+						                                <td>{{cliente.telefono}}</td>
+														<td>{{cliente.fecha}}</td>
+														<td> 
+															<a ng-click="editcliente(cliente.idCliente);" class="icon-accions fa fa-pencil" aria-hidden="true"></a>
+															
+															<a ng-click="deletecliente(cliente.idCliente);" class="icon-accions fa fa-trash" aria-hidden="true"></a>
+														</td>
+						                            </tr>
+						                                        
+						                        </tbody>
+						                    </table>
+						                    <!-- TABLE -->
+
+						            </div><!-- CARD CONTENT -->
+
+						        </div><!-- CARD -->
+
+						    </div><!-- COL 12 -->
+						                    
+						</div><!-- ROW -->
+
+						    <div class="mostrar-caja" ng-if="exite">
+								<div class="mostrar-btn">
+									<a class="btn btn-mostrar btn-success pull-right" ng-click="mostrarmas(siguiente);">Mostrar mas</a>
+								</div>
+								<div class="mostrar-img">
+									<img src="./img/load.gif" alt="">
+								</div>
+							</div>
+
+					</div><!-- CONTAINER -->
+					<!-- AQUI EDITAR -->
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- content -->
+
+     <div ng-include="pie"></div>
+

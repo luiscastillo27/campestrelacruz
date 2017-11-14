@@ -1,0 +1,226 @@
+<div class="wrapper" ng-controller="MenuCtrl">
+  
+      <div class="sidebar" data-color="purple" data-image="img/sidebar-1.jpg" >
+    
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+      -->
+      <div class="logo">
+        <div class="logo-img">
+          <img src="img/logo.png" alt="">
+        </div>
+      </div>
+
+      <div class="sidebar-wrapper">
+                
+        <ul class="nav">
+            <li ng-show="Perfil">
+                <a href="#/perfil" class="active">
+                    <i class="material-icons">person_pin</i>
+                    <p>Perfil</p>
+                </a>
+            </li>   
+            <li ng-show="Clientes">
+                <a href="#/clientes">
+                    <i class="material-icons">dashboard</i>
+                    <p>Clientes</p>
+                </a>
+            </li>
+            <li ng-show="Depositos">
+                <a href="#/depositos">
+                    <i class="material-icons">monetization_on</i>
+                    <p>Depositos depósitos</p> <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Empleados">
+                <a href="#/empleados">
+                  <i class="material-icons">person</i>
+                    <p>Empleados</p>
+                </a>
+            </li>
+            <li ng-show="Pagos">
+                <a href="#/pagos">
+                    <i class="material-icons">content_paste</i>
+                    <p>Pagos</p>  <!-- //falta -->
+                </a>
+            </li>
+            <li ng-show="Terrenos">
+                <a href="#/terrenos">
+                    <i class="material-icons">location_on</i>
+                    <p>Terrenos</p>
+                </a>
+            </li> 
+            <li ng-show="Mapa">
+                <a href="#/mapa">
+                    <i class="material-icons">map</i>
+                    <p>Mapa</p>
+                </a>
+            </li> 
+            <li ng-show="Recursos">
+                <a href="#/videos">
+                    <i class="material-icons">perm_media</i>
+                    <p>Recursos</p>
+                </a>
+            </li>
+        </ul>
+
+      </div>
+
+    </div><!-- MENU -->
+
+    
+     <div class="main-panel">
+          <div class="main-menu" ng-controller="FormsCtrl">
+          
+                <a ng-click="btnMenu(abir);" class="btnmenu">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <div class="dropdown">
+                    <button class="btnPerfil" data-toggle="dropdown">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu" ng-controller="LoginCtrl">
+                        <li ng-if="Perfil"><a href="#/perfil">Perfil</a></li>
+                        <li><a href="#/perfil/editar">Editar perfil</a></li>
+                        <li><a ng-click="salir();">Salir del sistema</a></li>
+                    </ul>
+                </div>
+            
+          </div>
+
+            <div class="content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- AQUI EDITAR -->
+<div class="container-fluid">
+
+	<div class="row">
+	    <div class="col-md-12">
+	        <div class="card">
+	            <div class="card-header" data-background-color="purple">
+	                <h4 class="title">Editar perfil</h4>
+					<p class="category">Modifica tu contraseña</p>
+	            </div><!-- HEADER -->
+	            <div class="card-content">
+	                <form role="form" name="formPerfil">
+
+	                    <div class="row" ng-if="tipoUsr == 0 ">
+	                        <div class="col-md-8">
+								<div class="form-group label-floating">
+									<label class="control-label">Nombre completo</label>
+									<input type="text" class="form-control" disabled id="pfnombre">
+								</div>
+	                        </div>
+	                        <div class="col-md-2">
+								<div class="form-group label-floating">
+									<label class="control-label">Usuario</label>
+									<input type="text" class="form-control" disabled id="pfusuario">
+								</div>
+	                        </div>   
+	                        <div class="col-md-2">
+								<div class="form-group label-floating">
+									<label class="control-label">Teléfono</label>
+									<input type="text" class="form-control" disabled id="pftelefono">
+								</div>
+	                        </div>                
+	                    </div><!-- ROW -->
+
+	                    <div class="row" ng-if="tipoUsr == 0 ">
+	                        <div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Domicilio</label>
+									<input type="text" class="form-control" disabled id="pfdomicilio">
+								</div>
+	                        </div>
+	                    </div><!-- ROW -->
+
+	                    <div class="row">
+	                        <div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Contraseña actual</label>
+									<input type="password" class="form-control" ng-model="perfil.passactual" required minlength="8">
+								</div>
+	                        </div>
+	                        <div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Contraseña nueva</label>
+									<input type="password" class="form-control" ng-model="perfil.password" required minlength="8">
+								</div>
+	                        </div>
+	                        <div class="col-md-4">
+								<div class="form-group label-floating">
+									<label class="control-label">Repetir contraseña</label>
+									<input type="password" class="form-control" ng-model="perfil.repassword" required minlength="8">
+								</div>
+	                        </div>
+	                        
+	                    </div><!-- ROW -->
+
+						<div class="row">
+	                    	<div class="col-md-8">
+	                    		
+
+	                    		<div class="alert alert-success" id="exito">
+					                <p>Se ha cambiado la contraseña de manera exitosa</p>
+					            </div> 
+					            <div class="alert alert-warning" id="waringPassword">
+					                <p>Las contraseñas deben ser iguales</p>
+					            </div>
+					            <div class="alert alert-danger" id="waring">
+					                <p>La contraseña es incorrecta</p>
+					            </div>
+					            <div class="alert alert-inverse" id="load">
+							        <img src="./img/load.gif" alt="cargando">
+							    </div> 
+
+	                    	</div>
+	                        <div class="col-md-4">
+	                        	<div class="form-group label-floating">
+
+									<button ng-disabled="formPerfil.$invalid" ng-click="cambiarpass();" class="btn btn-primary pull-right">Cambiar contraseña</button>
+
+								</div>
+	                        </div>
+	                    </div><!-- ROW -->
+
+	                </form><!-- FORMULARIO -->
+	            </div><!-- CARD CONTENT -->
+	        </div><!-- CARD -->
+	    </div><!-- CARD MD 8 -->
+	</div><!-- ROW -->
+			
+</div><!-- CONTAINER -->
+<!-- AQUI EDITAR -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- content -->
+
+        <div ng-include="pie"></div>
+
